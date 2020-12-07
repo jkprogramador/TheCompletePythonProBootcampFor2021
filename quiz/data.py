@@ -1,0 +1,33 @@
+question_data = [
+    {"category": "Entertainment: Film", "type": "boolean", "difficulty": "easy",
+     "question": "Han Solo's co-pilot and best friend, 'Chewbacca', is an Ewok.",
+     "correct_answer": "False", "incorrect_answers": ["True"]},
+    {"category": "Entertainment: Film", "type": "boolean", "difficulty": "easy",
+     "question": "The film '2001: A Space Odyssey' was released on December 31st, 2000.",
+     "correct_answer": "False", "incorrect_answers": ["True"]},
+    {"category": "Entertainment: Film", "type": "boolean", "difficulty": "easy",
+     "question": "Matt Damon played an astronaut stranded on an extraterrestrial planet "
+                 "in both of the movies Interstellar and The Martian.",
+     "correct_answer": "True", "incorrect_answers": ["False"]},
+    {"category": "Entertainment: Film", "type": "boolean", "difficulty": "easy",
+     "question": "The word 'Inception' came from the 2010 blockbuster hit 'Inception'.",
+     "correct_answer": "False", "incorrect_answers": ["True"]},
+    {"category": "Entertainment: Film", "type": "boolean", "difficulty": "easy",
+     "question": "Ewan McGregor did not know the name of the second prequel film of Star Wars during and after filming.",
+     "correct_answer": "True", "incorrect_answers": ["False"]},
+    {"category": "Entertainment: Film", "type": "boolean", "difficulty": "hard",
+     "question": "'Cube', 'Cube 2: Hypercube' and 'Cube Zero' were directed"
+                 " by the same person.",
+     "correct_answer": "False", "incorrect_answers": ["True"]},
+    {"category": "Entertainment: Film", "type": "boolean", "difficulty": "easy",
+     "question": "In the movie The Revenant, DiCaprio&#039;s character hunts down the killer of his son.",
+     "correct_answer": "True", "incorrect_answers": ["False"]},
+    {"category": "Entertainment: Film", "type": "boolean", "difficulty": "easy",
+     "question": "George Lucas directed the entire original Star Wars trilogy.", "correct_answer": "False",
+     "incorrect_answers": ["True"]}, {"category": "Entertainment: Film", "type": "boolean", "difficulty": "medium",
+                                      "question": "Joan Cusack starred in the 2009 disaster movie, '2012'.",
+                                      "correct_answer": "False", "incorrect_answers": ["True"]},
+    {"category": "Entertainment: Film", "type": "boolean", "difficulty": "hard",
+     "question": "YouTube personality Jenna Marbles served as an executive producer of the film Maximum Ride (2016).",
+     "correct_answer": "True", "incorrect_answers": ["False"]}
+]
