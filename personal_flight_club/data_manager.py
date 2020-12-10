@@ -1,8 +1,8 @@
 import requests
-from flight_search import FlightSearch
 
 API_URL = "https://api.sheety.co/236ed8d960b740b1902dedb235c100ea/flightDeals/prices"
-API_BASIC_AUTH = "Basic amtwcm9ncmFtYWRvcjo2ZWUxeS42YTc1ZWU="
+USERS_API_URL = "https://api.sheety.co/236ed8d960b740b1902dedb235c100ea/flightDeals/users"
+API_BASIC_AUTH = ""
 
 
 class DataManager:
@@ -20,6 +20,34 @@ class DataManager:
     @property
     def data(self) -> list:
         return self.__data["prices"]
+
+    @staticmethod
+    def save_user_data(first_name: str, last_name: str, email: str):
+        headers = {
+            "Authorization": API_BASIC_AUTH,
+            "Content-Type": "application/json"
+        }
+        post_data = {
+            "user": {
+                "firstName": first_name,
+                "lastName": last_name,
+                "email": email
+            }
+        }
+        response = requests.post(USERS_API_URL, json=post_data, headers=headers)
+        response.raise_for_status()
+
+    @staticmethod
+    def get_user_emails() -> list:
+        headers = {
+            "Authorization": API_BASIC_AUTH,
+            "Content-Type": "application/json"
+        }
+        response = requests.get(USERS_API_URL, headers=headers)
+        response.raise_for_status()
+        data = response.json()
+
+        return [user["email"] for user in data["users"]]
 
     @staticmethod
     def __load_data() -> dict:

@@ -3,7 +3,7 @@ from flight_data import FlightData
 
 API_LOCATIONS_URL = "https://tequila-api.kiwi.com/locations/query"
 API_SEARCH_URL = "https://tequila-api.kiwi.com/v2/search"
-API_KEY = "lqHhn5_jca5OqpFcxSidnWUqLJ-FPQOi"
+API_KEY = ""
 
 
 class FlightSearch:
@@ -40,7 +40,7 @@ class FlightSearch:
             "one_for_city": 1,
             "flight_type": "round",
             "max_stopovers": 0,
-            "nights_in_dst_from": 7, # Round trips that return between 7 and 28 days in length
+            "nights_in_dst_from": 7,  # Round trips that return between 7 and 28 days in length
             "nights_in_dst_to": 28,
             "adults": 1,
             "curr": "BRL"
