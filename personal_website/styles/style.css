@@ -1,0 +1,16 @@
+h3 {
+    background-color: #456268;
+}
+
+a:link, a:visited, a:active, a:hover {
+    color: #03506f;
+}
+
+header {
+    background-color: #03506f;
+    padding: 50px 5%;
+}
+
+.bg-beige {
+    background-color: #f3f2da;
+}
