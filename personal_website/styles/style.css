@@ -1,3 +1,28 @@
+@font-face {
+    font-family: "AntonioRegular";
+    src: url("fonts/Antonio-Regular.ttf");
+}
+
+@font-face {
+    font-family: "AntonioBold";
+    src: url("fonts/Antonio-Bold.ttf");
+}
+
+@font-face {
+    font-family: "GlacialIndifferenceRegular";
+    src: url("fonts/GlacialIndifference-Regular.otf");
+}
+
+@font-face {
+    font-family: "GlacialIndifferenceBold";
+    src: url("fonts/GlacialIndifference-Bold.otf");
+}
+
+body {
+    font-family: "GlacialIndifferenceRegular", Verdana, sans-serif;
+    font-size: 0.875rem;
+}
+
 h3 {
     background-color: #456268;
 }
@@ -6,9 +31,25 @@ a:link, a:visited, a:active, a:hover {
     color: #03506f;
 }
 
+li {
+    margin: 10px 0;
+}
+
 header {
     background-color: #03506f;
     padding: 50px 5%;
+}
+
+.antonio-bold {
+    font-family: "AntonioBold", Arial, sans-serif;
+}
+
+.antonio-regular {
+    font-family: "AntonioRegular", Arial, sans-serif;
+}
+
+.glacial-bold {
+    font-family: "GlacialIndifferenceBold", Verdana, sans-serif;
 }
 
 .bg-beige {
