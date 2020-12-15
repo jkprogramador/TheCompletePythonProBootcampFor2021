@@ -41,7 +41,9 @@ listing_addresses = []
 
 for article in articles:
     anchor_tag = article.find(name="a", class_="list-card-link")
-    listing_links.append(anchor_tag.get("href"))
+    url = anchor_tag.get("href")
+    url = "https://www.zillow.com" + url if not url.startswith("https") else url
+    listing_links.append(url)
     price_tag = article.find(name="div", class_="list-card-price")
 
     if price_tag:
