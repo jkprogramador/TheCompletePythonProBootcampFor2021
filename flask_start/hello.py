@@ -30,6 +30,11 @@ def make_underline(func):
 
 @app.route("/")
 def home():
+    return render_template("card.html")
+
+
+@app.route("/cv")
+def cv():
     return render_template("index.html")
 
 
