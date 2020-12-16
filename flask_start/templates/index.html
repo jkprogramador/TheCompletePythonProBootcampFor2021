@@ -9,6 +9,12 @@
     <h1>Hello World</h1>
     <p>{{ 5 * 6 }}</p>
     <h3>Random number: {{ num }}</h3>
+    <ul>
+        <li><a title="Go to Personal Card" href="{{ url_for('card') }}">Go to Personal Card</a></li>
+        <li><a title="Go to Resume" href="{{ url_for('cv') }}">Go to Resume</a></li>
+        <li><a title="Go to Blog" href="{{ url_for('get_blog', num=3) }}">Go to Blog</a></li>
+        <li><a title="Guess Me" href="{{ url_for('guess', name='Jack') }}">Guess Me</a></li>
+    </ul>
     <footer>
         <p>&copy; {{ year }}. Built by Jack Lee</p>
     </footer>

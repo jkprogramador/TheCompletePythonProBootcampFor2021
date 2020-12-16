@@ -66,8 +66,9 @@ def guess(name: str):
     return render_template("guess.html", name=name, age=age, gender=gender)
 
 
-@app.route("/blog")
-def blog():
+@app.route("/blog/<int:num>")
+def get_blog(num: int):
+    print(num)
     res = requests.get("https://api.npoint.io/5abcca6f4e39b4955965")
     res.raise_for_status()
     try:
