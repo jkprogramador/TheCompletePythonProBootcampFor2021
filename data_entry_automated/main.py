@@ -79,3 +79,5 @@ try:
 
 except NoSuchElementException as ex:
     print(ex)
+finally:
+    driver.quit()

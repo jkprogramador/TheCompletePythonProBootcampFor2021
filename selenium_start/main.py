@@ -25,4 +25,4 @@ driver = webdriver.Chrome(executable_path=CHROME_DRIVER_PATH)
 # prices = driver.find_elements_by_class_name(name="price")
 
 # driver.close()
-# driver.quit()
+driver.quit()
