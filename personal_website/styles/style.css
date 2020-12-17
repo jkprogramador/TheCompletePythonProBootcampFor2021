@@ -57,11 +57,11 @@ li {
 
 @media only screen and (min-width: 768px) {
     h1 {
-        flex-basis: 35%;
+        flex-basis: 50%;
     }
 
     address {
-        flex-basis: 65%;
+        flex-basis: 50%;
         border-left: 1px solid #f3f2da;
     }
 }
