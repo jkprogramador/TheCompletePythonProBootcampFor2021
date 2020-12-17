@@ -55,7 +55,7 @@ li {
     font-family: "GlacialIndifferenceBold", Verdana, sans-serif;
 }
 
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
     h1 {
         flex-basis: 50%;
     }
@@ -63,5 +63,11 @@ li {
     address {
         flex-basis: 50%;
         border-left: 1px solid #f3f2da;
+    }
+}
+
+@media only print {
+    a:link {
+        text-decoration: none;
     }
 }
