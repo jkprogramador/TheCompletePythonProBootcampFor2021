@@ -66,8 +66,14 @@ li {
     }
 }
 
-@media only print {
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+    }
     a:link {
         text-decoration: none;
+    }
+    td.bg-beige, tr.bg-beige td {
+        background-color: #f3f2da !important;
     }
 }
