@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+from flask_bootstrap import Bootstrap
 import requests
 import sys
 # import smtplib
@@ -10,6 +11,7 @@ MY_EMAIL_PASSWORD = ""
 
 app = Flask(__name__)
 app.secret_key = "LUcQ-ucAC-gp r@p6)@N16y|fb]D?FIG*{jr#yc$A/$nAp[SB08g.I{ka8gI!q5y"
+Bootstrap(app=app)
 
 try:
     res = requests.get("https://api.npoint.io/43644ec4f0013682fc0d")
