@@ -1,13 +1,15 @@
 from flask import Flask, render_template, request
 import requests
 import sys
-import smtplib
+# import smtplib
+from classes.login_form import LoginForm
 
 MY_EMAIL = ""
 MY_EMAIL_USERNAME = ""
 MY_EMAIL_PASSWORD = ""
 
 app = Flask(__name__)
+app.secret_key = "LUcQ-ucAC-gp r@p6)@N16y|fb]D?FIG*{jr#yc$A/$nAp[SB08g.I{ka8gI!q5y"
 
 try:
     res = requests.get("https://api.npoint.io/43644ec4f0013682fc0d")
@@ -27,6 +29,10 @@ def send_email(email_msg):
     #     connection.send_message(
     #         msg=f"Subject:Contact added\n\n{email_msg}",
     #         from_addr=MY_EMAIL, to_addrs=MY_EMAIL)
+
+
+def has_valid_credentials(email: str, password: str) -> bool:
+    return "admin@email.com" == email and "12345678" == password
 
 
 def send_message(func):
@@ -69,6 +75,19 @@ def get_post(blog_id: int):
         return render_template("post.html", post=blog_post)
     else:
         return '<h1>404 Not Found</h1>', 404
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    form = LoginForm()
+    if form.validate_on_submit():
+        if has_valid_credentials(email=form.email.data,
+                                 password=form.password.data):
+            return render_template("success.html")
+        else:
+            return render_template("denied.html")
+
+    return render_template("login.html", form=form)
 
 
 if __name__ == "__main__":
