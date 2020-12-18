@@ -1,6 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import requests
 import sys
+import smtplib
+
+MY_EMAIL = ""
+MY_EMAIL_USERNAME = ""
+MY_EMAIL_PASSWORD = ""
 
 app = Flask(__name__)
 
@@ -13,17 +18,41 @@ except ValueError as ex:
     sys.exit(1)
 
 
-@app.route('/')
+def send_message(func):
+    def contact(*args, **kwargs):
+        if request.method == "POST":
+            name = request.form["name"]
+            email = request.form["email"]
+            phone = request.form["phone"]
+            message = request.form["message"]
+            email_msg = f"Name: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {message}"
+            with smtplib.SMTP("smtp.gmail.com") as connection:
+                connection.starttls()
+                connection.login(user=MY_EMAIL_USERNAME,
+                                 password=MY_EMAIL_PASSWORD)
+                connection.send_message(
+                    msg=f"Subject:Contact added\n\n{email_msg}",
+                    from_addr=MY_EMAIL, to_addrs=MY_EMAIL)
+
+        return func()
+
+    return contact
+
+
+@app.route("/")
 def home():
     return render_template("index.html", posts=posts)
+
 
 @app.route("/about")
 def about():
     return render_template("about.html")
 
-@app.route("/contact")
+
+@app.route("/contact", methods=["GET", "POST"])
+@send_message
 def contact():
-    return render_template("contact.html")
+    return render_template("contact.html", method=request.method)
 
 
 @app.route("/post/<int:blog_id>")
