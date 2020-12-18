@@ -18,21 +18,26 @@ except ValueError as ex:
     sys.exit(1)
 
 
+def send_email(email_msg):
+    print(email_msg)
+    # with smtplib.SMTP("smtp.gmail.com") as connection:
+    #     connection.starttls()
+    #     connection.login(user=MY_EMAIL_USERNAME,
+    #                      password=MY_EMAIL_PASSWORD)
+    #     connection.send_message(
+    #         msg=f"Subject:Contact added\n\n{email_msg}",
+    #         from_addr=MY_EMAIL, to_addrs=MY_EMAIL)
+
+
 def send_message(func):
-    def contact(*args, **kwargs):
+    def contact():
         if request.method == "POST":
             name = request.form["name"]
             email = request.form["email"]
             phone = request.form["phone"]
             message = request.form["message"]
             email_msg = f"Name: {name}\nEmail: {email}\nPhone: {phone}\nMessage: {message}"
-            with smtplib.SMTP("smtp.gmail.com") as connection:
-                connection.starttls()
-                connection.login(user=MY_EMAIL_USERNAME,
-                                 password=MY_EMAIL_PASSWORD)
-                connection.send_message(
-                    msg=f"Subject:Contact added\n\n{email_msg}",
-                    from_addr=MY_EMAIL, to_addrs=MY_EMAIL)
+            send_email(email_msg)
 
         return func()
 
