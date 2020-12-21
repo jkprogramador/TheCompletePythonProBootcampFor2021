@@ -1,0 +1,15 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Edit Rating{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+{% endblock %}
+
+{% block content %}
+<p>Book Name: {{ book.title }}</p>
+<p>Current Rating: {{ book.rating }}</p>
+
+{{ wtf.quick_form(form, novalidate=True) }}
+{% endblock %}
