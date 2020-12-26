@@ -1,6 +1,53 @@
 import pandas as pd
 
-df = pd.read_csv("salaries_by_college_major.csv")
+# Series are array-like objects. They can be combined to form a tabular object
+# (DataFrame), with rows an columns being the series
+# Series can have an index, where all values must be unique
+# If we do not assign an index, then a numeric sequence starting from 0 will be used
+# Series can have a name, so that, if we were to create a DataFrame using this
+# series, a column/row name would be automatically assigned
+ser1 = pd.Series([1, 2, 3, 4])
+# print(ser1)
+ser2 = pd.Series(["a", "b", "c"])
+# print(ser2)
+# Create an index consisting of names of cities
+idx = pd.Index(
+    ["New York", "Los Angeles", "Chicago", "Houston", "Philadelphia", \
+     "Phoenix", "San Antonio", "San Diego", "Dallas"])
+# print(idx)
+
+# Create a series with index and name
+populations = pd.Series([1245.0, 4587.0, 9654.0, 7415.0, 5214.0, 6532.0, \
+                         58551.0, 6321.0, 745.0], index=idx, name="Population")
+# print(populations)
+
+# Create a series from a dictionary, where each key will be the index
+states = pd.Series({"New York": "New York", "Los Angeles": "Los Angeles"}, \
+                   name="State")
+# print(states)
+
+area = pd.Series({"New York": 302.6, "Los Angeles": 468.7}, name="Area")
+# print(area)
+
+# Create DataFrame from list of tuples
+# print(pd.DataFrame([(1, "a"), (2, "b"), (3, "c")], columns=["Numbers", "Letters"]))
+
+# Create DataFrame from dictionary
+# print(pd.DataFrame({"Numbers": [1, 2, 3], "Letters": ["a", "b", "c"]}))
+
+# If the lists are not of the same length, an error will be thrown
+# because pandas does not know how to assign an index to missing info
+# print(pd.DataFrame({"Numbers": [1, 2, 3, 4], "Letters": ["a"]}))
+
+# However, if we use series, even if they are not of same length,
+# pandas knows how to line up the elements in different series,
+# filling any spot where info is missing with NaN
+# print(pd.DataFrame({"Numbers": ser1, "Letters": ser2}))
+
+# print(pd.DataFrame({"State": states, "Population": populations, "Area": area}))
+
+# Read CSV file
+# df = pd.read_csv("salaries_by_college_major.csv")
 
 # print(df.head()) # View first 5 rows
 # print(df.tail()) # View last 5 rows
@@ -11,7 +58,7 @@ df = pd.read_csv("salaries_by_college_major.csv")
 
 # print(df.isna()) # View blank cells or cells that contain strings instead of numbers
 
-clean_df = df.dropna()  # Remove rows that contain NaN cells
+# clean_df = df.dropna()  # Remove rows that contain NaN cells
 # print(clean_df.tail())
 
 # print(clean_df["Starting Median Salary"]) # Get all rows from given column
