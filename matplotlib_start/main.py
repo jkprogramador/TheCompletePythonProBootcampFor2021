@@ -1,4 +1,8 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+from pandas.plotting import register_matplotlib_converters
+
+register_matplotlib_converters()
 
 df = pd.read_csv("QueryResults.csv", names=["DATE", "TAG", "POSTS"], header=0)
 df = df.dropna()
@@ -55,4 +59,22 @@ reshaped_df = df.pivot(index="DATE", columns="TAG", values="POSTS")
 reshaped_df.fillna(0, inplace=True)
 # print(reshaped_df.head())
 # Check if there are any NaN cells
-print(reshaped_df.isna().values.any())
+# print(reshaped_df.isna().values.any())
+
+# The window parameter is the number of observations that are averaged
+roll_df = reshaped_df.rolling(window=6).mean()
+
+plt.figure(figsize=(16, 10))
+plt.xlabel("Date", fontsize=14)
+plt.ylabel("Number of Posts", fontsize=14)
+plt.ylim(0, 35000)
+
+# plt.plot(reshaped_df.index, reshaped_df["java"], color="b", label="Java")
+# plt.plot(reshaped_df.index, reshaped_df["python"], color="r", label="Python")
+
+for col in roll_df.columns:
+    plt.plot(roll_df.index, roll_df[col], linewidth=1,
+             label=roll_df[col].name.title())
+
+plt.legend(fontsize=8)
+plt.show()
