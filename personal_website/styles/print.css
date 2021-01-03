@@ -1,13 +1,10 @@
 body {
     -webkit-print-color-adjust: exact;
-    font-size: 15pt;
-}
-a:link {
-    text-decoration: none;
+    font-size: 14pt;
 }
 
-.table {
-    color: black !important;
+a:link {
+    text-decoration: none;
 }
 
 td.bg-beige, tr.bg-beige td {
