@@ -32,7 +32,7 @@ a:link, a:visited, a:active, a:hover {
 
 body {
     font-family: "GlacialIndifferenceRegular", Verdana, sans-serif;
-    font-size: 0.875rem;
+    font-size: 0.875rem; /* 14px */
 }
 
 .bg-beige {
@@ -63,17 +63,5 @@ li {
     address {
         flex-basis: 50%;
         border-left: 1px solid #f3f2da;
-    }
-}
-
-@media print {
-    body {
-        -webkit-print-color-adjust: exact;
-    }
-    a:link {
-        text-decoration: none;
-    }
-    td.bg-beige, tr.bg-beige td {
-        background-color: #f3f2da !important;
     }
 }
